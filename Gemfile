@@ -1,0 +1,5 @@
+source 'https://rubygems.org'
+gem 'sinatra'
+gem 'readlists-anonymous'
+gem 'dropbox-sdk'
+gem 'open_uri_redirections'
