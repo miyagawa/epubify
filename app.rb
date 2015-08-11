@@ -38,11 +38,13 @@ class ReadabilityArticle
       res = head_request "https://www.readability.com/articles/#{article_id}/download/kindle/"
       case res.code
       when "302", "301"
+        puts "---> Kindle MOBI file generated"
         @mobi_url = res["Location"]
         break
       when "404"
         return
       else
+        puts "---> Waiting for Kindle file generation"
         sleep 2
       end
     end
@@ -139,6 +141,8 @@ post '/' do
     unless article.article_id
       halt 400, 'Article not parsable'
     end
+
+    puts "---> Article-Id: #{article.article_id}"
 
     if ENV['DROPBOX_TOKEN']
       Delivery::Dropbox.new(ENV['DROPBOX_TOKEN']).deliver(article)
