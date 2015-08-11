@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.2.0'
 gem 'sinatra'
-gem 'readlists-anonymous'
 gem 'dropbox-sdk'
 gem 'open_uri_redirections'
+gem 'mail'
